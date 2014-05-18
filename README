@@ -1,23 +1,20 @@
-Class/PublicPrivate version 0.80
-========================
-
 NAME
+
     Class::PublicPrivate - Class with public keys with any name and a
     separate set of private keys
 
 SYNOPSIS
+
     PublicPrivate is intended for use as a base class for other classes.
     Users of class based on PublicPrivate can assign any keys to the object
-    hash without interfering with keys used internally. The private data can
-    be accessed by retrieving the private hash with the "private" method.
+    hash without interfering with keys used internally. The private data
+    can be accessed by retrieving the private hash with the private method.
     For example, the following code outputs two different values, one for
-    the public value of "start" and another for the private value of
-    "start".
+    the public value of start and another for the private value of start.
 
      package ExtendedClass;
-     use Class::PublicPrivate;
-     @ExtendedClass::ISA=('Class::PublicPrivate');
- 
+     use base 'Class::PublicPrivate';
+    
      sub new{
         my $class = shift;
         my $self = $class->SUPER::new();
@@ -28,16 +25,17 @@ SYNOPSIS
     
         return $self;
      }
- 
+    
      package main;
      my ($var);
      $var = ExtendedClass->new();
      $var->{'start'} = 1;
-
+    
      print $var->{'start'}, "\n";
      print $var->private()->{'start'}, "\n";
 
 INSTALLATION
+
     Class::PublicPrivate can be installed with the usual routine:
 
             perl Makefile.PL
@@ -45,27 +43,40 @@ INSTALLATION
             make test
             make install
 
-    You can also just copy PublicPrivate.pm into the Class/ directory of one
-    of your library trees.
+    You can also just copy PublicPrivate.pm into the Class/ directory of
+    one of your library trees.
 
 METHODS
-  YourClass->new(classname ,[initikey1=>initvalue [, ...]])
+
+ YourClass->new(classname ,[initikey1=>initvalue [, ...]])
 
     Returns an instantiation of YourClass, where YourClass is a class that
     extends Class::PublicPrivate. Additional key=>value pairs are stored in
     the private hash. Programs that use your class can store any date
     directly in it w/o affecting the object's private data.
 
-  $ob->private()
+ $ob->private()
 
     Returns a reference to the hash of private data.
 
 TERMS AND CONDITIONS
-    Copyright (c) 2000 by Miko O'Sullivan. All rights reserved. This program
-    is free software; you can redistribute it and/or modify it under the
-    same terms as Perl itself. This software comes with NO WARRANTY of any
-    kind.
+
+    Copyright (c) 2000 by Miko O'Sullivan. All rights reserved. This
+    program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself. This software comes with NO
+    WARRANTY of any kind.
 
 AUTHOR
+
     Miko O'Sullivan miko@idocs.com
+
+VERSIONS
+
+    Version 0.80, June 29, 2002
+
+      First public release
+
+    Version 0.81 May 18, 2014
+
+      Minor tightening up of code. Fixed problems in packaging for CPAN.
 

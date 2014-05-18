@@ -1,6 +1,10 @@
-Changes
-Makefile.PL
 MANIFEST
-PublicPrivate.pm
+Changes
+META.yml
+Makefile.PL
 README
-test.pl
+Build.PL
+LICENSE
+t/regtest.t
+lib/Class/PublicPrivate.pod
+lib/Class/PublicPrivate.pm
