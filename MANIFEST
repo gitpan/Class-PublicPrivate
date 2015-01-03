@@ -5,6 +5,6 @@ Makefile.PL
 README
 Build.PL
 LICENSE
-t/regtest.t
+t/test.t
 lib/Class/PublicPrivate.pod
 lib/Class/PublicPrivate.pm

@@ -1,12 +1,16 @@
 #!/usr/bin/perl -w
 use strict;
 use lib '../../';
-# use Debug::ShowStuff ':all';
 use Class::PublicPrivate;
-use Test;
+use Test::More;
+
+# debugging tools
+# use Debug::ShowStuff ':all';
+# use Debug::ShowStuff::ShowVar;
+
 
 # plan tests
-BEGIN { plan tests => 4 };
+plan tests => 4;
 
 
 ###############################################################################
@@ -45,34 +49,24 @@ my ($ob, $private);
 
 # create PublicPrivate object
 $ob = ExtendedClass->new();
-ok ($ob ? 1 : 0);
+ok ($ob, 'create PublicPrivate object');
 
 # get private hash
 $private = $ob->private;
-ok ($private ? 1 : 0);
+ok ($private, 'get private hash');
 
 # store something in private hash
 $private->{'a'} = 1;
 
 # should have valuie in private
-if ($ob->private->{'a'} == 1)
-	{ ok 1 }
-else
-	{ ok 0 }
+ok($ob->private->{'a'} == 1, 'should have valuie in private');
 
 # store something in object
 $ob->{'b'} = 2;
 
 # $ob should have exactly one key
-if (keys(%$ob) == 1)
-	{ ok 1 }
-else
-	{ ok 0 }
+ok(keys(%$ob) == 1, '$ob should have exactly one key');
 
 #
 # main
 ###############################################################################
-
-
-# success
-# print "\nall tests successful\n";

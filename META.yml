@@ -8,7 +8,7 @@ name: Class-PublicPrivate
 provides:
     Class::PublicPrivate:
         file: lib/Class/PublicPrivate.pm
-        version: 0.81
+        version: 0.82
 requires:
     perl: 5.003
-version: 0.81
+version: 0.82

@@ -2,7 +2,11 @@ package Class::PublicPrivate;
 use strict;
 
 # version
-our $VERSION = '0.81';
+our $VERSION = '0.82';
+
+#------------------------------------------------------------------------------
+# opening POD
+#
 
 =head1 NAME
 
@@ -44,14 +48,10 @@ C<start> and another for the private value of C<start>.
 
 Class::PublicPrivate can be installed with the usual routine:
 
-	perl Makefile.PL
-	make
-	make test
-	make install
-
-You can also just copy PublicPrivate.pm into the Class/ directory of one of
-your library trees.
-
+ perl Makefile.PL
+ make
+ make test
+ make install
 
 =head1 METHODS
 
@@ -68,7 +68,7 @@ Returns a reference to the hash of private data.
 
 =head1 TERMS AND CONDITIONS
 
-Copyright (c) 2000 by Miko O'Sullivan.  All rights reserved.  This program
+Copyright (c) 2015 by Miko O'Sullivan.  All rights reserved.  This program
 is free software; you can redistribute it and/or modify it under the same
 terms as Perl itself.  This software comes with B<NO WARRANTY> of any kind.
 
@@ -79,8 +79,12 @@ F<miko@idocs.com>
 
 =cut
 
+#
+# opening POD
+#------------------------------------------------------------------------------
 
-#---------------------------------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
 # new
 #
 sub new {
@@ -96,10 +100,10 @@ sub new {
 }
 #
 # new
-#---------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
 
-#---------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 # private
 # returns the private hash
 # 
@@ -108,12 +112,12 @@ sub private {
 }
 # 
 # private
-#---------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
 
 
-######################################################################
-# DsHash package
+###############################################################################
+# Class::PublicPrivate::Tie
 # 
 package Class::PublicPrivate::Tie;
 use strict;
@@ -160,15 +164,20 @@ sub NEXTKEY {
 	return $v;
 }
 # 
-# DsHash package
-######################################################################
+# Class::PublicPrivate::Tie
+###############################################################################
 
 
 
 # return 
 1;
 
-=head1 VERSIONS
+=head1 VERSION
+
+Version: 
+
+
+=head1 HISTORY
 
 =over
 
@@ -179,6 +188,11 @@ First public release
 =item Version 0.81 May 18, 2014
 
 Minor tightening up of code. Fixed problems in packaging for CPAN.
+
+=item Version 0.82 January 2, 2015
+
+Minor tidying up code formatting and POD. Modifed tests to include test names.
+Modifed files to use Unix style newlines, and to be encoded UTF-8.
 
 =back
 
